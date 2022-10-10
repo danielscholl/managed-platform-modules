@@ -8,6 +8,5 @@ Below is a table containing all published modules. Each version badge shows the 
 
 <!-- Begin Module Table -->
 
-| Module                        |                                                                                Version                                                                                |                                                             Docs                                                              |
-| :---------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
-| `platform/container-registry` | <a href="https://managedplatform.azurecr.io/v2/bicep/platform/container-registry/tags/list"><image src="https://img.shields.io/badge/managedplatform-1.0.2-blue"></a> | [📃 Readme](https://github.com/danielscholl/managed-platform-modules/blob/main/modules/platform/container-registry/README.md) |
+
+<!-- End Module Table -->
