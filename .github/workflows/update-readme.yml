@@ -1,4 +1,4 @@
-name: Job - Update Readme
+name: Action - Update Readme
 
 on:
   workflow_dispatch:
