@@ -9,7 +9,6 @@ else
 fi
 
 
-
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 PARENT_DIR=`dirname $SCRIPT_DIR`
 
@@ -24,7 +23,7 @@ PARAMETERS="$PARENT_DIR/modules/platform/$MODULE/test/parameters.json"
 
 # Retrieve Resource Group Name
 if [ -z $RESOURCE_GROUP_NAME ]; then
-  RESOURCE_GROUP_NAME="iac-bicep"
+  RESOURCE_GROUP_NAME="managed-platform-modules-ci"
 fi
 
 # Check if Azure CLI Logged in, if not prompt to login then set default values.
