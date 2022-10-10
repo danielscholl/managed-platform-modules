@@ -1,5 +1,7 @@
 # Hello World
 
+A sample template
+
 ## Description
 
 {{ Add detailed description for the module. }}
