@@ -37,7 +37,7 @@ async function generateModulesTable(axios, fs, path, core) {
 
     for (const moduleName of moduleNames) {
       const modulePath = `${moduleGroup}/${moduleName}`;
-      const versionListUrl = `https://managdplatform.azurecr.io/v2/bicep/${modulePath}/tags/list`;
+      const versionListUrl = `https://managedplatform.azurecr.io/v2/bicep/${modulePath}/tags/list`;
 
       try {
         const versionListResponse = await axios.get(versionListUrl);
