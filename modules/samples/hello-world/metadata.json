@@ -1,0 +1,7 @@
+{
+  "$schema": "https://aka.ms/bicep-registry-module-metadata-file-schema#",
+  "name": "Hello World",
+  "summary": "",
+  "owner": "danielscholl",
+  "description": "A \u0022Hello World\u0022 sample Bicep registry module"
+}
