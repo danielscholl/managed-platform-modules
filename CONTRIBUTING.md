@@ -141,7 +141,16 @@ brm validate
 
 ## Running deployment tests
 
-//TODO: add instructions for running deployment tests with `test.sh`
+Deployment tests for module deployments are performed with a manual script [`scripts\test.sh`](https://github.com/danielscholl/managed-platform-modules/blob/main/scripts/test.sh)
+
+This script requires login to an azure subscription with the CLI and deploys the module into a resource group.  This should be validated by a module developer prior to submitting a pull request.
+
+The Script performs the following items.
+
+- Template Validation
+- Template WhatIf
+- Template Deployment
+
 
 ## Submitting a pull request
 
