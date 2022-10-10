@@ -6,7 +6,7 @@ Pipeline Information can be found [here](pipelines.md).
 
 Secrets are managed using [Github Repository Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) and are required to be created manually.
 
-__Manually Created Secrets__
+**Manually Created Secrets**
 
 1. `AZURE_TENANT_ID`: The Azure AD Tenant being used.
 
