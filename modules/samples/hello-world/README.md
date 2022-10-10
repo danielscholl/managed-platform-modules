@@ -21,7 +21,7 @@ A sample template
 ## Examples
 
 ```bicep
-module helloWorld 'br/managedplatform.azurecr.io:samples/hello-world:1.0.0' = {
+module helloWorld 'br/managedplatform.azurecr.io:samples/hello-world:1.0.1' = {
   name: 'helloWorld'
   params: {
     name: 'Bicep developers'
