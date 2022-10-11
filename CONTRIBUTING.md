@@ -1,4 +1,4 @@
-# Contributing to the Platform Bicep MOdules
+# Contributing to the Platform Bicep Modules
 
 The following instructions are created to help with the development of these modules.
 
