@@ -125,6 +125,26 @@ var ddosProtectionPlan = {
 resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2021-08-01' = if( newOrExistingNSG == 'new' ) {
   name: networkSecurityGroupName
   location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'deny-hop-outbound'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRanges: [
+            '3389'
+            '22'
+          ]
+          access: 'Deny'
+          priority: 200
+          direction: 'Outbound'
+          sourceAddressPrefix: 'VirtualNetwork'
+          destinationAddressPrefix: '*'
+        }
+      }
+    ]
+  }
 }
 
 resource existingNetworkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2021-08-01' existing = if( newOrExistingNSG == 'existing' ) {
