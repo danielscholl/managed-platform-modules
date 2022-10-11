@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.11.1.770",
-      "templateHash": "2139695699867391566"
+      "templateHash": "8687965585378200208"
     }
   },
   "parameters": {
@@ -226,9 +226,12 @@
     }
   ],
   "outputs": {
-    "Id": {
+    "id": {
       "type": "string",
-      "value": "[resourceId('Microsoft.OperationalInsights/workspaces', if(greater(length(variables('name')), 63), substring(variables('name'), 0, 63), variables('name')))]"
+      "value": "[resourceId('Microsoft.OperationalInsights/workspaces', if(greater(length(variables('name')), 63), substring(variables('name'), 0, 63), variables('name')))]",
+      "metadata": {
+        "description": "The resource ID of the workspace."
+      }
     }
   }
 }

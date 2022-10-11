@@ -24,9 +24,9 @@ This module deploys a Log Analytics Workspace.
 
 ## Outputs
 
-| Name | Type   | Description |
-| :--- | :----: | :---------- |
-| Id   | string |             |
+| Name | Type   | Description                       |
+| :--- | :----: | :-------------------------------- |
+| id   | string | The resource ID of the workspace. |
 
 ## Examples
 

@@ -149,4 +149,5 @@ resource diagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' 
   }
 }
 
-output Id string = logAnalyticsWorkspace.id
+@description('The resource ID of the workspace.')
+output id string = logAnalyticsWorkspace.id
