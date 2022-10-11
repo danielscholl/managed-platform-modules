@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.11.1.770",
-      "templateHash": "5740338827814890703"
+      "templateHash": "1601369063483112003"
     }
   },
   "parameters": {
@@ -210,7 +210,27 @@
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2021-08-01",
       "name": "[parameters('networkSecurityGroupName')]",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "deny-hop-outbound",
+            "properties": {
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRanges": [
+                "3389",
+                "22"
+              ],
+              "access": "Deny",
+              "priority": 200,
+              "direction": "Outbound",
+              "sourceAddressPrefix": "VirtualNetwork",
+              "destinationAddressPrefix": "*"
+            }
+          }
+        ]
+      }
     },
     {
       "type": "Microsoft.Network/virtualNetworks",
