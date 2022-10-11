@@ -24,7 +24,6 @@ This module deploys a User Managed Identity.
 
 ## Examples
 
-
 ```bicep
 module example 'br/managedplatform.azurecr.io:platform/user-identity:1.0.1' = {
   name: 'user_identity'
