@@ -1,0 +1,6 @@
+{
+  "$schema": "https://aka.ms/bicep-registry-module-metadata-file-schema-v2#",
+  "name": "Azure Virtual Network Module",
+  "summary": "This module deploys an Azure Virtual Network.",
+  "owner": "danielscholl"
+}
