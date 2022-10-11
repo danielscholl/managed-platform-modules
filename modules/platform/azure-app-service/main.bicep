@@ -21,8 +21,8 @@ param enableDeleteLock bool = false
 @description('The Runtime stack of current web app')
 param linuxFxVersion string = 'NODE|10.15'
 
-var appServicePlanName = 'AppServicePlan-${replace(resourceName, '-', '')}${uniqueString(resourceGroup().id, resourceName)}'
-var appServiceName = 'AppService-${replace(resourceName, '-', '')}${uniqueString(resourceGroup().id, resourceName)}'
+var appServicePlanName = 'plan-${replace(resourceName, '-', '')}${uniqueString(resourceGroup().id, resourceName)}'
+var appServiceName = 'web-${replace(resourceName, '-', '')}${uniqueString(resourceGroup().id, resourceName)}'
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   name: appServicePlanName

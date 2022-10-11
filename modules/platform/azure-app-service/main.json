@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.11.1.770",
-      "templateHash": "2646226329793064172"
+      "templateHash": "718208888871891602"
     }
   },
   "parameters": {
@@ -51,8 +51,8 @@
     }
   },
   "variables": {
-    "appServicePlanName": "[format('AppServicePlan-{0}{1}', replace(parameters('resourceName'), '-', ''), uniqueString(resourceGroup().id, parameters('resourceName')))]",
-    "appServiceName": "[format('AppService-{0}{1}', replace(parameters('resourceName'), '-', ''), uniqueString(resourceGroup().id, parameters('resourceName')))]"
+    "appServicePlanName": "[format('plan-{0}{1}', replace(parameters('resourceName'), '-', ''), uniqueString(resourceGroup().id, parameters('resourceName')))]",
+    "appServiceName": "[format('web-{0}{1}', replace(parameters('resourceName'), '-', ''), uniqueString(resourceGroup().id, parameters('resourceName')))]"
   },
   "resources": [
     {
