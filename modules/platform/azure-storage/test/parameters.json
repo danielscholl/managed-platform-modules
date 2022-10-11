@@ -8,8 +8,8 @@
     "location": {
       "value": "southcentralus"
     },
-    "resourceName": {
-      "value": "iac"
+    "prefix": {
+      "value": "saiac"
     }
   }
 }
