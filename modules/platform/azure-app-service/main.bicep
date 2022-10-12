@@ -9,11 +9,14 @@ param resourceName string
 param location string = resourceGroup().location
 
 @description('SKU for the App Service Plan')
-@allowed([
-  'F1'
-  'B1'
-])
-param sku string = 'F1'
+param sku string = 'S1'
+
+@description('SKU tier for the App Service Plan')
+param skuTier string = 'Standard'
+
+@minValue(2)
+@description('Capacity for the App Service Plan')
+param skuCapacity int = 2
 
 @description('Enable lock to prevent accidental deletion')
 param enableDeleteLock bool = false
@@ -29,6 +32,8 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   location: location
   sku: {
     name: sku
+    tier: skuTier
+    capacity: skuCapacity
   }
   kind: 'linux'
   properties: {
