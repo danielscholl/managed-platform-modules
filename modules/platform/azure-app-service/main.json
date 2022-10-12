@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.11.1.770",
-      "templateHash": "2342306052328838463"
+      "templateHash": "15394495973531009858"
     }
   },
   "parameters": {
@@ -26,14 +26,25 @@
     },
     "sku": {
       "type": "string",
-      "defaultValue": "F1",
-      "allowedValues": [
-        "F1",
-        "B1"
-      ],
+      "defaultValue": "S1",
       "metadata": {
         "description": "SKU for the App Service Plan"
       }
+    },
+    "skuTier": {
+      "type": "string",
+      "defaultValue": "Standard",
+      "metadata": {
+        "description": "SKU tier for the App Service Plan"
+      }
+    },
+    "skuCapacity": {
+      "type": "int",
+      "defaultValue": 2,
+      "metadata": {
+        "description": "Capacity for the App Service Plan"
+      },
+      "minValue": 2
     },
     "enableDeleteLock": {
       "type": "bool",
@@ -61,7 +72,9 @@
       "name": "[variables('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "[parameters('sku')]"
+        "name": "[parameters('sku')]",
+        "tier": "[parameters('skuTier')]",
+        "capacity": "[parameters('skuCapacity')]"
       },
       "kind": "linux",
       "properties": {

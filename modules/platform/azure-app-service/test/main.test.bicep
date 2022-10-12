@@ -14,6 +14,5 @@ module acr '../main.bicep' = {
   params: {
     resourceName: resourceName
     location: location
-    sku: 'F1'
   }
 }

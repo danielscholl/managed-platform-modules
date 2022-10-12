@@ -13,6 +13,8 @@ This module deploys an Azure App Service and Plan
 | `resourceName`     | `string` | Yes      | Used to name all resources                 |
 | `location`         | `string` | No       | Resource Location.                         |
 | `sku`              | `string` | No       | SKU for the App Service Plan               |
+| `skuTier`          | `string` | No       | SKU tier for the App Service Plan          |
+| `skuCapacity`      | `int`    | No       | Capacity for the App Service Plan          |
 | `enableDeleteLock` | `bool`   | No       | Enable lock to prevent accidental deletion |
 | `linuxFxVersion`   | `string` | No       | The Runtime stack of current web app       |
 
