@@ -24,6 +24,9 @@ param enableDeleteLock bool = false
 @description('The Runtime stack of current web app')
 param linuxFxVersion string = 'NODE|10.15'
 
+@description('Improve performance of your stateless app by turning Affinity Cookie off, stateful apps should keep this setting on for compatibility')
+param clientAffinityEnabled bool = false
+
 var appServicePlanName = 'plan-${replace(resourceName, '-', '')}${uniqueString(resourceGroup().id, resourceName)}'
 var appServiceName = 'web-${replace(resourceName, '-', '')}${uniqueString(resourceGroup().id, resourceName)}'
 
@@ -51,7 +54,10 @@ resource appService 'Microsoft.Web/sites@2021-02-01' = {
       linuxFxVersion: linuxFxVersion
       minTlsVersion: '1.2'
       ftpsState: 'FtpsOnly'
+      alwaysOn: true
+      http20Enabled: true
     }
+    clientAffinityEnabled: clientAffinityEnabled
   }
   identity: {
     type: 'SystemAssigned'

@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.11.1.770",
-      "templateHash": "15394495973531009858"
+      "templateHash": "3266858030488106592"
     }
   },
   "parameters": {
@@ -59,6 +59,13 @@
       "metadata": {
         "description": "The Runtime stack of current web app"
       }
+    },
+    "clientAffinityEnabled": {
+      "type": "bool",
+      "defaultValue": false,
+      "metadata": {
+        "description": "Improve performance of your stateless app by turning Affinity Cookie off, stateful apps should keep this setting on for compatibility"
+      }
     }
   },
   "variables": {
@@ -92,8 +99,11 @@
         "siteConfig": {
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
           "minTlsVersion": "1.2",
-          "ftpsState": "FtpsOnly"
-        }
+          "ftpsState": "FtpsOnly",
+          "alwaysOn": true,
+          "http20Enabled": true
+        },
+        "clientAffinityEnabled": "[parameters('clientAffinityEnabled')]"
       },
       "identity": {
         "type": "SystemAssigned"
