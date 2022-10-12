@@ -71,3 +71,14 @@ resource appServiceLock 'Microsoft.Authorization/locks@2017-04-01' = if (enableD
   }
 }
 
+@description('The name of the App Service Plan')
+output appServicePlanName string = appServicePlan.name
+
+@description('The resourceId of the App Service Plan')
+output appServicePlanId string = appServicePlan.id
+
+@description('The name of the App Service')
+output appServiceName string = appService.name
+
+@description('The resourceId of the App Service')
+output appServiceId string = appService.id

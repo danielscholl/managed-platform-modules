@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.11.1.770",
-      "templateHash": "718208888871891602"
+      "templateHash": "2342306052328838463"
     }
   },
   "parameters": {
@@ -115,5 +115,35 @@
         "[resourceId('Microsoft.Web/sites', variables('appServiceName'))]"
       ]
     }
-  ]
+  ],
+  "outputs": {
+    "appServicePlanName": {
+      "type": "string",
+      "value": "[variables('appServicePlanName')]",
+      "metadata": {
+        "description": "The name of the App Service Plan"
+      }
+    },
+    "appServicePlanId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+      "metadata": {
+        "description": "The resourceId of the App Service Plan"
+      }
+    },
+    "appServiceName": {
+      "type": "string",
+      "value": "[variables('appServiceName')]",
+      "metadata": {
+        "description": "The name of the App Service"
+      }
+    },
+    "appServiceId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Web/sites', variables('appServiceName'))]",
+      "metadata": {
+        "description": "The resourceId of the App Service"
+      }
+    }
+  }
 }

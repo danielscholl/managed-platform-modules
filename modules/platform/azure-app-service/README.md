@@ -18,8 +18,12 @@ This module deploys an Azure App Service and Plan
 
 ## Outputs
 
-| Name | Type | Description |
-| :--- | :--: | :---------- |
+| Name               | Type   | Description                            |
+| :----------------- | :----: | :------------------------------------- |
+| appServicePlanName | string | The name of the App Service Plan       |
+| appServicePlanId   | string | The resourceId of the App Service Plan |
+| appServiceName     | string | The name of the App Service            |
+| appServiceId       | string | The resourceId of the App Service      |
 
 ## Examples
 
