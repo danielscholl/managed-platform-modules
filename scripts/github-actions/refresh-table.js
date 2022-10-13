@@ -30,7 +30,8 @@ function getSubdirNames(fs, dir) {
 async function generateModulesTable(axios, fs, path, core) {
   const tableData = [["Module", "Version", "Docs"]];
   const moduleGroups = getSubdirNames(fs, "modules");
-  const tagsUrl = 'https://api.github.com/repos/danielscholl/managed-platform-modules/tags';
+  const tagsUrl =
+    "https://api.github.com/repos/danielscholl/managed-platform-modules/tags";
   const tagsResponse = await axios.get(tagsUrl);
   const tags = tagsResponse.data;
 
@@ -40,7 +41,6 @@ async function generateModulesTable(axios, fs, path, core) {
 
     for (const moduleName of moduleNames) {
       const modulePath = `${moduleGroup}/${moduleName}`;
-      
 
       try {
         const latestVersion = getLatestVersion(tags, modulePath);
@@ -64,8 +64,7 @@ async function generateModulesTable(axios, fs, path, core) {
     if (latestVersion === undefined) {
       const badgeUrl = `https://img.shields.io/badge/managed--platform-unknown-red`;
       return `<image src="${badgeUrl}">`;
-    }
-    else {
+    } else {
       const tagUrl = `https://github.com/danielscholl/managed-platform-modules/releases/tag/${modulePath}/${latestVersion}`;
       const badgeUrl = `https://img.shields.io/badge/managed--platform-${latestVersion}-blue`;
       return `<a href="${tagUrl}"><image src="${badgeUrl}"></a>`;
@@ -73,14 +72,15 @@ async function generateModulesTable(axios, fs, path, core) {
   }
 
   function getLatestVersion(tags, module) {
-    if (tags.some(tag => tag.name.includes(module + "/"))) {
-        const latestTag = tags.filter(tag => tag.name.includes(module + "/"))
-        .map(tag => tag.name.split("/").pop())
+    if (tags.some((tag) => tag.name.includes(module + "/"))) {
+      const latestTag = tags
+        .filter((tag) => tag.name.includes(module + "/"))
+        .map((tag) => tag.name.split("/").pop())
         .sort()
         .pop();
-        return latestTag;
+      return latestTag;
     }
-}
+  }
 
   // markdown-table is ESM only, so we cannot use require.
   const { markdownTable } = await import("markdown-table");

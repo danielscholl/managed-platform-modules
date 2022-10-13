@@ -8,8 +8,8 @@ Below is a table containing all published modules. Each version badge shows the 
 
 <!-- Begin Module Table -->
 
-| Module       |     Version |        Docs |
-| :----------- | -----------:| ----------: |
-| placeholder  | placeholder | placeholder |
+| Module      |     Version |        Docs |
+| :---------- | ----------: | ----------: |
+| placeholder | placeholder | placeholder |
 
 <!-- End Module Table -->
