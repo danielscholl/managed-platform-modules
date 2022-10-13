@@ -35,8 +35,8 @@ This module deploys an Azure KeyVault.
 module keyvault 'br:managedplatform.azurecr.io/bicep/modules/platform/azure-keyvault:1.0.1' = {
   name: 'azure_keyvault'
   params: {
-    resourceName: resourceName
-    location: location
+    resourceName: kv${uniqueString(resourceGroup().id)}
+    location: 'southcentralus'
     sku: 'Standard'
   }
 }
