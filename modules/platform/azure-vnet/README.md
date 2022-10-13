@@ -40,12 +40,31 @@ This module deploys an Azure Virtual Network.
 
 ## Examples
 
-### Example 1
-
 ```bicep
-```
-
-### Example 2
-
-```bicep
+module vnet 'br:managedplatform.azurecr.io/bicep/modules/platform/azure-vnet:1.0.1' = {
+  name: 'azure_vnet'
+  params: {
+    resourceName: `vnet-${unique(resourceGroup().name)}'
+    location: 'southcentralus'
+    addressPrefixes: [
+      '192.168.0.0/24'
+    ]
+    subnets: [
+      {
+        name: 'default'
+        addressPrefix: '192.168.0.0/24'
+        privateEndpointNetworkPolicies: 'Disabled'
+        privateLinkServiceNetworkPolicies: 'Enabled'
+      }
+    ]
+    roleAssignments: [
+      {
+        roleDefinitionResourceId: '/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7' // Network Contributor
+        principalId: principalId
+        principalType: 'ServicePrincipal'
+        enabled: true
+      }
+    ]
+  }
+}
 ```
