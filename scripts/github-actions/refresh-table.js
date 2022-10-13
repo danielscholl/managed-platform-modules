@@ -30,6 +30,10 @@ function getSubdirNames(fs, dir) {
 async function generateModulesTable(axios, fs, path, core) {
   const tableData = [["Module", "Version", "Docs"]];
   const moduleGroups = getSubdirNames(fs, "modules");
+  const tagsUrl =
+    "https://api.github.com/repos/danielscholl/managed-platform-modules/tags";
+  const tagsResponse = await axios.get(tagsUrl);
+  const tags = tagsResponse.data;
 
   for (const moduleGroup of moduleGroups) {
     var moduleGroupPath = path.join("modules", moduleGroup);
@@ -37,26 +41,44 @@ async function generateModulesTable(axios, fs, path, core) {
 
     for (const moduleName of moduleNames) {
       const modulePath = `${moduleGroup}/${moduleName}`;
-      const versionListUrl = `https://managedplatform.azurecr.io/v2/bicep/${modulePath}/tags/list`;
 
       try {
-        const versionListResponse = await axios.get(versionListUrl);
-        const latestVersion = versionListResponse.data.tags.sort().at(-1);
-        const badgeUrl = `https://img.shields.io/badge/managed-platform-${latestVersion}-blue`;
-
-        core.debug(badgeUrl.href);
+        const latestVersion = getLatestVersion(tags, modulePath);
 
         const module = `\`${modulePath}\``;
-        const versionBadge = `<a href="${versionListUrl}"><image src="${badgeUrl}"></a>`;
+        const versionBadge = getVersionBadge(modulePath, latestVersion);
 
         const moduleRootUrl = `https://github.com/danielscholl/managed-platform-modules/blob/main/modules/${modulePath}`;
+        const codeLink = `[🦾 Code](${moduleRootUrl}/main.bicep)`;
         const readmeLink = `[📃 Readme](${moduleRootUrl}/README.md)`;
-        const docs = `${readmeLink}`;
+        const docs = `${codeLink} ｜ ${readmeLink}`;
 
         tableData.push([module, versionBadge, docs]);
       } catch (error) {
         core.setFailed(error);
       }
+    }
+  }
+
+  function getVersionBadge(modulePath, latestVersion) {
+    if (latestVersion === undefined) {
+      const badgeUrl = `https://img.shields.io/badge/managed--platform-unknown-red`;
+      return `<image src="${badgeUrl}">`;
+    } else {
+      const tagUrl = `https://github.com/danielscholl/managed-platform-modules/releases/tag/${modulePath}/${latestVersion}`;
+      const badgeUrl = `https://img.shields.io/badge/managed--platform-${latestVersion}-blue`;
+      return `<a href="${tagUrl}"><image src="${badgeUrl}"></a>`;
+    }
+  }
+
+  function getLatestVersion(tags, module) {
+    if (tags.some((tag) => tag.name.includes(module + "/"))) {
+      const latestTag = tags
+        .filter((tag) => tag.name.includes(module + "/"))
+        .map((tag) => tag.name.split("/").pop())
+        .sort()
+        .pop();
+      return latestTag;
     }
   }
 
