@@ -30,12 +30,14 @@ This module deploys a Log Analytics Workspace.
 
 ## Examples
 
-### Example 1
-
 ```bicep
-```
-
-### Example 2
-
-```bicep
+module logAnalytics 'br:managedplatform.azurecr.io/bicep/modules/platform/log-analytics:1.0.1' = {
+  name: 'log_analytics'
+  params: {
+    resourceName: 'log-${uniqueString(resourceGroup().id)}'
+    location: location
+    sku: 'PerGB2018'
+    retentionInDays: 30
+  }
+}
 ```
