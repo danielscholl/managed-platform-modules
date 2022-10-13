@@ -29,12 +29,12 @@ This module deploys an Azure Storage Account.
 ### Example 1
 
 ```bicep
-module storage 'br/managedplatform.azurecr.io:platform/azure-storage:1.0.1' = {
-  name: 'container_registry'
+module storage 'br:managedplatform.azurecr.io/bicep/modules/platform/azure-storage:1.0.1' = {
+  name: 'azure_storage'
   params: {
-    resourceName: resourceName
-    location: location
-    sku: 'Standard'
+    prefix: 'iac'
+    location: 'southcentralus'
+    sku: 'Standard_LRS'
     rbacPermissions: [
       {
         roleDefinitionResourceId: '/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe' // Storage Blob Data Contributor
