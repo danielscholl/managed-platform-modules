@@ -59,10 +59,11 @@ module vnet 'br:managedplatform.azurecr.io/bicep/modules/platform/azure-vnet:1.0
     ]
     roleAssignments: [
       {
-        roleDefinitionResourceId: '/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7' // Network Contributor
-        principalId: principalId
+        roleDefinitionIdOrName: 'Reader'
+        principalIds: [
+          '222222-2222-2222-2222-2222222222'
+        ]
         principalType: 'ServicePrincipal'
-        enabled: true
       }
     ]
   }
