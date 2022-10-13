@@ -32,7 +32,7 @@ This module deploys an Azure Storage Account.
 module storage 'br:managedplatform.azurecr.io/bicep/modules/platform/azure-storage:1.0.1' = {
   name: 'azure_storage'
   params: {
-    prefix: 'iac'
+    prefix: 'sa'
     location: 'southcentralus'
     sku: 'Standard_LRS'
     rbacPermissions: [
