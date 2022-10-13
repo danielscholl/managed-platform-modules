@@ -28,7 +28,7 @@ This module deploys a User Managed Identity.
 module example 'br:managedplatform.azurecr.io/bicep/modules/platform/user-identity:1.0.1' = {
   name: 'user_identity'
   params: {
-    resourceName: 'identity'
+    resourceName: 'id-${uniqueString(resourceGroup().id)}'
     location: 'southcentralus'
   }
 }
