@@ -32,8 +32,8 @@ This module deploys an Azure KeyVault.
 ## Examples
 
 ```bicep
-module acr 'br/managedplatform.azurecr.io:platform/container-registry:1.0.1' = {
-  name: 'container_registry'
+module keyvault 'br:managedplatform.azurecr.io/bicep/modules/platform/azure-keyvault:1.0.1' = {
+  name: 'azure_keyvault'
   params: {
     resourceName: resourceName
     location: location
