@@ -1,7 +1,7 @@
 targetScope = 'resourceGroup'
 
 @minLength(3)
-@maxLength(10)
+@maxLength(50)
 @description('Used to name all resources')
 param resourceName string
 

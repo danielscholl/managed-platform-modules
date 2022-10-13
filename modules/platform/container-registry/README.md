@@ -30,12 +30,11 @@ Use this module within other Bicep templates to simplify the usage of a Containe
 ## Examples
 
 ```bicep
-module acr 'br/managedplatform.azurecr.io:platform/container-registry:1.0.1' = {
+module acr 'br:managedplatform.azurecr.io/bicep/modules/platform/container-registry:1.0.1' = {
   name: 'container_registry'
   params: {
-    resourceName: resourceName
-    location: location
-    sku: 'Standard'
+    resourceName: 'acr${uniqueString(resourceGroup().id)}'
+    location: 'southcentralus'
   }
 }
 ```

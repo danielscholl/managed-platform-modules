@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.11.1.770",
-      "templateHash": "11858693231920265601"
+      "templateHash": "8461178703994823792"
     }
   },
   "parameters": {
@@ -14,7 +14,7 @@
       "metadata": {
         "description": "Used to name all resources"
       },
-      "maxLength": 10,
+      "maxLength": 50,
       "minLength": 3
     },
     "location": {
